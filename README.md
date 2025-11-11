@@ -1,12 +1,17 @@
-# Moja szkoła AI 🤖
+# 🧠 Moja szkoła AI  
 
-To mój pierwszy projekt na GitHubie.  
-Uczę się Pythona i chcę stworzyć własne AI oraz stronę, która będzie uczyć programowania.  
+To mój pierwszy projekt na GitHubie! 🚀  
+Uczę się **Pythona** i chcę stworzyć **swoje własne AI**, które będzie uczyć innych programowania w sposób prosty i ciekawy.  
 
-## Co potrafi
-- Wita użytkownika  
-- Rozwiązuje proste zadania z Pythona  
-- Uczy się nowych odpowiedzi (w przyszłości)
+## 💡 Co potrafi
+- 👋 Wita użytkownika  
+- 🧩 Rozwiązuje proste zadania z Pythona  
+- 🤖 (W przyszłości) będzie się uczyć nowych odpowiedzi  
 
-## Technologie
-Python, HTML, GitHub Pages (w planach)
+## 🛠️ Technologie
+- Python 🐍  
+- HTML 🌐  
+- GitHub Pages (w planach)  
+
+## 🎯 Cel projektu
+Chcę stworzyć **internetową szkołę programowania z AI**, w której uczniowie uczą się z pomocą sztucznej inteligencji — krok po kroku, jak w prawdziwej rozmowie.  
