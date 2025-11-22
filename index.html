@@ -54,6 +54,29 @@
             border-top: 1px solid #30363d;
             margin-top: 40px;
         }
+        /* Chatbox style */
+        #chat {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            background: #161b22;
+        }
+        #messages {
+            height: 200px;
+            overflow-y: auto;
+            background: #0d1117;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        #input {
+            width: 70%;
+            padding: 5px;
+        }
+        #sendBtn {
+            padding: 5px 10px;
+        }
     </style>
 </head>
 <body>
@@ -92,7 +115,15 @@
     <div class="card">
         <h2>📥 Pobierz projekt</h2>
         <p>Kod źródłowy znajdziesz na GitHubie:</p>
-        <a href="#" class="button">➡️ Zobacz repozytorium</a>
+        <a href="#chat" class="button">💬 Otwórz bota</a>
+    </div>
+
+    <!-- Chat section -->
+    <div id="chat">
+        <h3>Chat z botem</h3>
+        <div id="messages"></div>
+        <input id="input" placeholder="Napisz wiadomość..." />
+        <button id="sendBtn">Wyślij</button>
     </div>
 
 </div>
@@ -101,6 +132,43 @@
     © 2025 WCToileet — Projekt edukacyjny z AI 💚
 </footer>
 
+<script>
+const input = document.getElementById('input');
+const messages = document.getElementById('messages');
+const sendBtn = document.getElementById('sendBtn');
+
+function addMessage(sender, text) {
+    messages.innerHTML += `<p><b>${sender}:</b> ${text}</p>`;
+    messages.scrollTop = messages.scrollHeight;
+}
+
+function sendMessage() {
+    const msg = input.value.trim();
+    if(!msg) return;
+
+    addMessage('Ty', msg);
+
+    // Logika bota
+    let botResponse = "";
+    if(msg.toLowerCase().includes("python")) {
+        botResponse = "Python to super język do nauki programowania! 🐍";
+    } else if(msg.toLowerCase().includes("quiz")) {
+        botResponse = "Quiz czeka w Twoim projekcie Python! Rozwiąż pytania i zdobywaj punkty!";
+    } else {
+        botResponse = "Bot mówi: " + msg.split("").reverse().join("");
+    }
+
+    addMessage('Bot', botResponse);
+    input.value = "";
+}
+
+sendBtn.addEventListener('click', sendMessage);
+
+// Enter key to send message
+input.addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') sendMessage();
+});
+</script>
+
 </body>
 </html>
-
