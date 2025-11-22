@@ -1,25 +1,16 @@
-# 🧠 Moja szkoła AI  
+🧠 Moja szkoła AI
+Projekt WCToileet — uczę się Pythona i tworzę swoje własne AI!
 
-To mój pierwszy projekt na GitHubie! 🚀  
-Uczę się **Pythona** i chcę stworzyć **swoje własne AI**, które będzie uczyć innych programowania w sposób prosty i ciekawy.  
+📚 O projekcie
+To mój pierwszy projekt na GitHubie! Tworzę program w Pythonie, który będzie uczyć podstaw programowania. I teraz nawet dobrze mi idzie. Planuję zrobić z tego globalny projekt, mam nadzieje że u mnie uda się
 
----
-
-## 💡 Co potrafi
-- 👋 Wita użytkownika  
-- 🧩 Rozwiązuje proste zadania z Pythona  
-- 🎓 Zawiera quiz edukacyjny w pliku `szkola.py`  
-- 🤖 (W przyszłości) będzie się uczyć nowych odpowiedzi  
-
----
-
-## 📘 Plik `szkola.py`
-`szkola.py` to **mini quiz o Pythonie**, który:
-- zadaje losowe pytania o składnię i podstawy 🐍  
-- ma poziomy trudności i podpowiedzi 💡  
-- zapisuje wyniki i rekordy 📊  
-- działa całkowicie w terminalu  
-
-Uruchomienie:
-```bash
-python szkola.py
+🚀 Co potrafi AI
+Wita użytkownika
+Rozwiązuje proste zadania z Pythona
+Będzie uczyć się nowych odpowiedzi
+Ma quiz z punktami i rekordem
+🛠️ Technologie
+Python 🐍
+HTML 🌐
+JavaScript
+GitHub Pages
