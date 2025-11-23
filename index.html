@@ -4,93 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moja szkoła AI</title>
+
     <style>
         body {
             background: #0d1117;
             color: #c9d1d9;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
         }
+
         header {
             background: #161b22;
             padding: 20px;
             text-align: center;
             border-bottom: 1px solid #30363d;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin: 0;
+
+        h1, h2, h3 {
+            color: #58a6ff;
         }
+
         .container {
             max-width: 900px;
             margin: 40px auto;
             padding: 20px;
         }
+
         .card {
             background: #161b22;
             padding: 20px;
             margin-bottom: 20px;
             border: 1px solid #30363d;
-            border-radius: 8px;
+            border-radius: 10px;
         }
-        a.button {
+
+        .button {
             display: inline-block;
-            padding: 12px 20px;
             background: #238636;
-            color: #fff;
+            padding: 12px 20px;
+            color: white;
+            border-radius: 7px;
             text-decoration: none;
-            border-radius: 6px;
-            margin-top: 10px;
-            transition: 0.2s;
+            transition: .2s;
         }
-        a.button:hover {
+
+        .button:hover {
             background: #2ea043;
         }
+
         footer {
             text-align: center;
             padding: 20px;
             color: #8b949e;
-            border-top: 1px solid #30363d;
             margin-top: 40px;
         }
-        /* Chatbox style */
-        #chat {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            background: #161b22;
+
+        /* --- MODAL CHAT --- */
+        #chatModal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
         }
+
+        #chatWindow {
+            width: 80%;
+            max-width: 600px;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #30363d;
+        }
+
         #messages {
-            height: 200px;
+            height: 300px;
             overflow-y: auto;
             background: #0d1117;
-            padding: 5px;
-            border-radius: 5px;
-            margin-bottom: 5px;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #30363d;
         }
-        #input {
-            width: 70%;
-            padding: 5px;
+
+        #chatInput {
+            width: 75%;
+            padding: 10px;
         }
+
         #sendBtn {
-            padding: 5px 10px;
+            padding: 10px 20px;
         }
+
+        #clearBtn {
+            padding: 10px 20px;
+            background: #8b0000;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #clearBtn:hover {
+            background: red;
+        }
+
+        /* popup potwierdzenia */
+        #confirmClear {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #30363d;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .yes, .no {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .yes { background: #238636; color: white; }
+        .no { background: #8b0000; color: white; }
     </style>
 </head>
+
 <body>
 
 <header>
     <h1>🧠 Moja szkoła AI</h1>
-    <p>Projekt WCToileet — uczę się Pythona i tworzę swoje własne AI!</p>
+    <p>Projekt WCToileet</p>
 </header>
 
 <div class="container">
 
     <div class="card">
         <h2>📚 O projekcie</h2>
-        <p>To mój pierwszy projekt na GitHubie! Tworzę program w Pythonie, który będzie uczyć podstaw programowania.</p>
+        <p>To mój globalny projekt nauki sztucznej inteligencji.</p>
+        <p>Repozytorium: https://github.com/WCToileet/Szkola-AI</p>
     </div>
 
     <div class="card">
@@ -98,44 +153,64 @@
         <ul>
             <li>Wita użytkownika</li>
             <li>Rozwiązuje proste zadania z Pythona</li>
-            <li>Będzie uczyć się nowych odpowiedzi</li>
-            <li>Ma quiz z punktami i rekordem</li>
+            <li>Odpowiada na 100+ pytań</li>
+            <li>Reaguje na słowa kluczowe</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>🛠️ Technologie</h2>
+        <h2>🛠 Technologie</h2>
         <ul>
             <li>Python 🐍</li>
             <li>HTML 🌐</li>
+            <li>JavaScript ⚡</li>
             <li>GitHub Pages</li>
         </ul>
-    </div>
 
-    <div class="card">
-        <h2>📥 Pobierz projekt</h2>
-        <p>Kod źródłowy znajdziesz na GitHubie:</p>
-        <a href="#chat" class="button">💬 Otwórz bota</a>
-    </div>
-
-    <!-- Chat section -->
-    <div id="chat">
-        <h3>Chat z botem</h3>
-        <div id="messages"></div>
-        <input id="input" placeholder="Napisz wiadomość..." />
-        <button id="sendBtn">Wyślij</button>
+        <a class="button" id="openChat">💬 Otwórz chat</a>
     </div>
 
 </div>
 
-<footer>
-    © 2025 WCToileet — Projekt edukacyjny z AI 💚
-</footer>
+<footer>© 2025 WCToileet</footer>
+
+<!-- CHAT MODAL -->
+<div id="chatModal">
+    <div id="chatWindow">
+        <h3>💬 Chat AI</h3>
+
+        <div id="messages"></div>
+
+        <input id="chatInput" placeholder="Napisz..." />
+        <button id="sendBtn">Wyślij</button>
+
+        <br><br>
+
+        <button id="clearBtn">🗑 Wyczyść chat</button>
+
+        <div id="confirmClear">
+            <p>Czy na pewno chcesz wyczyścić chat?</p>
+            <button class="yes">Tak</button>
+            <button class="no">Nie</button>
+        </div>
+
+        <br>
+        <a class="button" id="closeChat">⬅ Wróć</a>
+    </div>
+</div>
 
 <script>
-const input = document.getElementById('input');
-const messages = document.getElementById('messages');
-const sendBtn = document.getElementById('sendBtn');
+const openChat = document.getElementById("openChat");
+const closeChat = document.getElementById("closeChat");
+const chatModal = document.getElementById("chatModal");
+
+openChat.onclick = () => chatModal.style.display = "flex";
+closeChat.onclick = () => chatModal.style.display = "none";
+
+/* CHAT LOGIKA */
+const messages = document.getElementById("messages");
+const input = document.getElementById("chatInput");
+const sendBtn = document.getElementById("sendBtn");
 
 function addMessage(sender, text) {
     messages.innerHTML += `<p><b>${sender}:</b> ${text}</p>`;
@@ -144,30 +219,72 @@ function addMessage(sender, text) {
 
 function sendMessage() {
     const msg = input.value.trim();
-    if(!msg) return;
+    if (!msg) return;
 
-    addMessage('Ty', msg);
+    addMessage("Ty", msg);
 
-    // Logika bota
-    let botResponse = "";
-    if(msg.toLowerCase().includes("python")) {
-        botResponse = "Python to super język do nauki programowania! 🐍";
-    } else if(msg.toLowerCase().includes("quiz")) {
-        botResponse = "Quiz czeka w Twoim projekcie Python! Rozwiąż pytania i zdobywaj punkty!";
-    } else {
-        botResponse = "Bot mówi: " + msg.split("").reverse().join("");
+    const m = msg.toLowerCase();
+    let bot = "...";
+
+    /* --- DUŻA LISTA PYTAŃ I ODPOWIEDZI --- */
+
+    const responses = {
+        "python": "Python to świetny język!",
+        "javascript": "JavaScript rządzi stronami WWW!",
+        "co robisz": "Rozmawiam z Tobą 😎",
+        "jak masz na imię": "Jestem twoim AI!",
+        "hej": "Hej! Jak mogę pomóc?",
+        "hello": "Hello friend!",
+        "siema": "Siemaaa 💚",
+        "elo": "Elooo 😁",
+        "pogoda": "Nie wiem, ale mogę udawać że wiem — jest ładnie!",
+        "ile masz lat": "Jestem AI więc się nie starzeję.",
+        "kto cię stworzył": "Stworzył mnie WCToileet 💙",
+        "github": "Repo masz tu: github.com/WCToileet",
+        "lubisz mnie": "Oczywiście że tak!",
+        "co potrafisz": "Wiele! Kodować, odpowiadać, pomagać!",
+        "twoja ulubiona gra": "Minecraft... oczywiście 😎",
+        "cs": "Counter Strike? Znam!",
+        "minecraft": "Minecraft to legenda.",
+        "fortnite": "Fortnite? Skarpetkowe tańce i budowanie 😁",
+        "python lista": "Lista w Pythonie to np.: [1,2,3]",
+        "pętla": "Pętla to powtarzanie kodu.",
+        "funny": "😂",
+        "żart": "Dlaczego programista nie może zgubić okularów? Bo ma backup! 🤓"
+    };
+
+
+    bot = "Póki co nażal nie umiem na to odpowiedźieć😔, Ale to nie znaczy że nie nauczę się tego😁!";
+
+    for (const key in responses) {
+        if (m.includes(key)) bot = responses[key];
     }
 
-    addMessage('Bot', botResponse);
+    addMessage("Bot", bot);
     input.value = "";
 }
 
-sendBtn.addEventListener('click', sendMessage);
+sendBtn.onclick = sendMessage;
 
-// Enter key to send message
-input.addEventListener('keypress', function(e) {
-    if(e.key === 'Enter') sendMessage();
+/* ENTER wysyła */
+input.addEventListener("keypress", e => {
+    if (e.key === "Enter") sendMessage();
 });
+
+/* CZYSZCZENIE CHATA */
+const clearBtn = document.getElementById("clearBtn");
+const confirmBox = document.getElementById("confirmClear");
+const yes = document.querySelector(".yes");
+const no = document.querySelector(".no");
+
+clearBtn.onclick = () => confirmBox.style.display = "block";
+no.onclick = () => confirmBox.style.display = "none";
+
+yes.onclick = () => {
+    messages.innerHTML = "";
+    confirmBox.style.display = "none";
+};
+
 </script>
 
 </body>
